@@ -1,0 +1,23 @@
+apply plugin: 'java'
+
+repositories {
+    jcenter()
+    maven {
+      url "https://repository.cloudera.com/artifactory/cloudera-repos/"
+    }
+}
+
+ext.cdhVersion="2.5.0-mr1-cdh5.3.10"
+
+dependencies {
+
+    // The production code uses the SLF4J logging API at compile time
+    compile 'org.slf4j:slf4j-api:1.7.13'
+ 
+    compile "org.apache.hadoop:hadoop-common:2.6.0-cdh5.7.0"
+    compile "org.apache.hadoop:hadoop-core:2.6.0-mr1-cdh5.7.0"
+
+    compile 'com.google.code.gson:gson:2.6.2'
+
+    testCompile 'junit:junit:4.12'
+}
